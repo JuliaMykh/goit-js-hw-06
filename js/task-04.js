@@ -14,7 +14,7 @@ console.log(btnDecrement);
 const btnIncrement = document.querySelector('[data-action="increment"]');
 console.log(btnIncrement);
 
-const valueEl = document.querySelector('[id="value"]');
+const valueEl = document.querySelector('#value');
 console.log(valueEl);
 
 btnDecrement.addEventListener('click', handleBtnClickDecrement);

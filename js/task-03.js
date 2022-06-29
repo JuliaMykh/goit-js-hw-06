@@ -13,17 +13,18 @@ const images = [
   },
 ];
 
-const liEl = document.createElement('li');
-const liElFirst = document.createElement('li');
-const liElSecond = document.createElement('li');
 
-const listImg = images.map((image) => `<img src = "${image.url}" alt = "${image.alt}" />`);
+const allImages = document.querySelector(".gallery");
+  allImages.style.display = "flex";
+  allImages.style.flexDirection = "column";
+  allImages.style.listStyle = "none";
+  allImages.setAttribute("flex-direction", "column");
 
-liEl.insertAdjacentHTML("afterbegin", listImg[0]);
-liElFirst.insertAdjacentHTML("afterbegin", listImg[1]);
-liElSecond.insertAdjacentHTML("afterbegin", listImg[2]);
+const imagesList = ({url, alt}) => {
+  return `<li><img src = ${url} alt = '${alt}' width="300" height="175"></li>`;
+};
 
+const addImg = images.map(imagesList).join('');
 
-const listEl = document.querySelector('.gallery');
-listEl.append(liEl, liElFirst, liElSecond);
-console.log(listEl);
+allImages.insertAdjacentHTML("afterbegin", addImg);
+
